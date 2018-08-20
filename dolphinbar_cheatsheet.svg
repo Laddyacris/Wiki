@@ -1,0 +1,3863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+
+
+	
+
+	
+	
+
+	
+	
+
+	
+	
+	
+	
+
+	viewBox="0 0 372 733"
+	
+	
+	width="1024.0px"
+	height="2017.720430107527px"
+
+
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+<style type="text/css"><![CDATA[
+
+
+.cheatsheet rect.section:nth-child(odd) {
+	fill: #bef9eb;
+}
+.cheatsheet rect.section:nth-child(even) {
+	fill: #c0ebf9;
+}
+
+.cheatsheet rect.column {
+	fill: #ffffff;
+}
+.cheatsheet rect.column:nth-child(odd) {
+	opacity: 0.25;
+}
+.cheatsheet rect.column:first-child,
+.cheatsheet rect.column:nth-child(even) {
+	opacity: 0;
+}
+
+.cheatsheet rect.row {
+	fill: #ffffff;
+}
+.cheatsheet rect.row:nth-child(odd) {
+	opacity: 0;
+}
+.cheatsheet rect.row:nth-child(even) {
+	opacity: 0.25;
+}
+
+.cheatsheet .section_labels text.section_label {
+	font-family: "Arial", sans-serif;
+	font-size: 8px;
+	text-anchor: middle;
+	dominant-baseline: central;
+	fill: black;
+	stroke: none;
+}
+
+.cheatsheet .section_data_cell > text {
+	font-family: "Arial", sans-serif;
+	font-size: 6px;
+	text-anchor: middle;
+	dominant-baseline: central;
+	fill: black;
+	stroke: none;
+}
+.cheatsheet .section_data:first-child .section_data_row:first-child text {
+	font-weight: bold;
+}
+
+.cheatsheet text.title,
+.cheatsheet text.title tspan {
+	font-family: "Arial", sans-serif;
+	font-size: 8px;
+	text-anchor: middle;
+	dominant-baseline: central;
+	fill: black;
+	stroke: none;
+}
+
+.cheatsheet text.footnote,
+.cheatsheet text.footnote tspan,
+.cheatsheet text.footnote a {
+	font-family: "Arial", sans-serif;
+	font-size: 6px;
+	text-anchor: start;
+	dominant-baseline: text-before-edge;
+	fill: black;
+	stroke: none;
+}
+
+.cheatsheet a:hover,
+.cheatsheet text a:hover,
+.cheatsheet text tspan a:hover {
+	fill: blue;
+}
+
+
+]]></style>
+
+<defs>
+
+<!-- ** Wii Remote and Classic Controller D-Pad. ** -->
+
+<radialGradient id="dpad_gradient" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+	<stop offset="0" stop-color="#fff"/>
+	<stop offset="1" stop-color="#ccc"/>
+</radialGradient>
+
+<path id="dpad_shape" d="M1,12 h10 q1,0 1,-1 v-10 q0,-1 1,-1 h10 q1,0 1,1 v10 q0,1 1,1 h10 q1,0 1,1 v10 q0,1 -1,1 h-10 q-1,0 -1,1 v10 q0,1 -1,1 h-10 q-1,0 -1,-1 v-10 q0,-1 -1,-1 h-10 q-1,0 -1,-1 v-10 q0,-1 1,-1 z"/>
+
+<clipPath id="dpad_clip" clipPathUnits="userSpaceOnUse">
+	<use xlink:href="#dpad_shape" x="0" y="0" />
+</clipPath>
+
+<symbol id="dpad" viewBox="-1.5 -1.5 39 39">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="silver"/ -->
+	<!-- Shadow. -->
+	<use xlink:href="#dpad_shape" x="1" y="1" opacity="0.887" stroke-width="1" stroke="#000000" fill="#000000" />
+	<!-- Base. -->
+	<use xlink:href="#dpad_shape" x="0" y="0" stroke="none" fill="url(#dpad_gradient)" />
+	<!-- Trick for creating highlights and shadows. -->
+	<g clip-path="url(#dpad_clip)">
+		<use xlink:href="#dpad_shape" x="-0.5" y="-0.5" stroke-width="2" stroke="#000000" stroke-opacity="0.5" fill="none" />
+	</g>
+	<g clip-path="url(#dpad_clip)">
+		<use xlink:href="#dpad_shape" x="0.5" y="0.5" stroke-width="2" stroke="#ffffff" stroke-opacity="0.5" fill="none" />
+	</g>
+	<!-- The dark outline. -->
+	<use xlink:href="#dpad_shape" x="0" y="0" stroke-width="1" stroke="#000000" fill="none" />
+	<!-- Directional ticks. -->
+	<path d="M4,18 h7 M32,18 h-7 M18,4 v7 M18,32 v-7" stroke-width="1" stroke="#909090" fill="none"/>
+</symbol>
+
+<linearGradient id="dpad_press_gradient" x1="0" y1="0" x2="0" y2="1">
+	<stop offset="0.5" stop-color="#0094ff" stop-opacity="0.75"/>
+	<stop offset="1.0" stop-color="#0094ff" stop-opacity="0"/>
+</linearGradient>
+
+<g id="dpad_press">
+	<rect x="-4.5" y="-16.5" width="9" height="12" fill="url(#dpad_press_gradient)"/>
+</g>
+
+<symbol id="dpad_up" viewBox="0 0 39 39">
+	<use xlink:href="#dpad" x="0" y="0" width="39" height="39" />
+	<use xlink:href="#dpad_press" x="0" y="0" transform="translate(19.5 19.5) rotate(0)"/>
+</symbol>
+<symbol id="dpad_right" viewBox="0 0 39 39">
+	<use xlink:href="#dpad" x="0" y="0" width="39" height="39" />
+	<use xlink:href="#dpad_press" x="0" y="0" transform="translate(19.5 19.5) rotate(90)"/>
+</symbol>
+<symbol id="dpad_down" viewBox="0 0 39 39">
+	<use xlink:href="#dpad" x="0" y="0" width="39" height="39" />
+	<use xlink:href="#dpad_press" x="0" y="0" transform="translate(19.5 19.5) rotate(180)"/>
+</symbol>
+<symbol id="dpad_left" viewBox="0 0 39 39">
+	<use xlink:href="#dpad" x="0" y="0" width="39" height="39" />
+	<use xlink:href="#dpad_press" x="0" y="0" transform="translate(19.5 19.5) rotate(270)"/>
+</symbol>
+
+<!-- On all buttons and keys in this file, the label is being placed on top of the lighting, which is not accurate, but is good enough and is very easy to implement. -->
+
+<!-- ** Wii Remote/Nunchuk/Classic Controller buttons (round shapes). ** -->
+<!-- Inspired by http://ftpmerou.free.fr/ubuntu/wiimote/wiimote.svg -->
+
+<radialGradient id="button_diffuse_gradient" cx="0.4" cy="0.4" r="0.5" fx="0.66" fy="0.66">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="0.39634147"/>
+</radialGradient>
+<linearGradient id="button_shiny_specular_gradient" x1="0.333" y1="0.4" x2="0.666" y2="0.5">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</linearGradient>
+
+<symbol id="button_shiny" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<circle cx="15.75" cy="15.75" r="15" opacity="0.333" fill="#000000" stroke-width="1" stroke="#000000"  />
+	<circle cx="15" cy="15" r="15" fill="#d0d4d6" stroke-width="0.4" stroke="#cbcacf" />
+
+	<!-- Base. -->
+	<circle cx="15" cy="15" r="15" fill="#d0d4d6" stroke-width="0.4" stroke="#cbcacf" />
+
+	<!-- Diffuse lighting. -->
+	<circle cx="16" cy="16.5" r="14" fill="url(#button_diffuse_gradient)" stroke="none"  />
+
+	<!-- Specular lighting. -->
+	<path d="M 2,20 a 14.25,14.25 0,0,1 22,-16 z" fill="url(#button_shiny_specular_gradient)" stroke="none"  />
+</symbol>
+
+<linearGradient id="button_matte_specular_gradient" x1="0.333" y1="0.333" x2="0.56" y2="0.56">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</linearGradient>
+
+<symbol id="button_matte" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<circle cx="15.75" cy="15.75" r="15" opacity="0.887" fill="#000000" stroke-width="1" stroke="#000000"  />
+
+	<!-- Base. -->
+	<circle cx="15" cy="15" r="15" fill="#d0d4d6" stroke-width="1" stroke="#8a8993" />
+
+	<!-- Specular lighting. -->
+	<path d="M 2,20 a 14.25,14.25 0,0,1 22,-16 z" fill="url(#button_matte_specular_gradient)" stroke="none"  />
+</symbol>
+
+<symbol id="button_matte_oval" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<ellipse cx="15.75" cy="15.75" rx="15" ry="11" opacity="0.887" fill="#000000" stroke-width="1" stroke="#000000"  />
+
+	<!-- Base. -->
+	<ellipse cx="15" cy="15" rx="15" ry="11" fill="#d0d4d6" stroke-width="1" stroke="#8a8993" />
+
+	<!-- Specular lighting. -->
+	<path d="M 2,18 a 13.75,9.75 0,0,1 21,-11 z" fill="url(#button_matte_specular_gradient)" stroke="none"  />
+</symbol>
+
+<linearGradient id="button_inset_shadow" x1="0" y1="0" x2="1" y2="1">
+	<stop offset="0" stop-color="#000000" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+</linearGradient>
+
+<symbol id="button_inset" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<circle cx="15" cy="15" r="16.9" fill="url(#button_inset_shadow)" stroke="none" />
+
+	<!-- Base. -->
+	<circle cx="15" cy="15" r="15" fill="#d0d4d6" stroke-width="1" stroke="#8a8993" />
+
+	<!-- Specular lighting. -->
+	<path d="M 2,20 a 14.25,14.25 0,0,1 22,-16 z" fill="url(#button_matte_specular_gradient)" stroke="none"  />
+</symbol>
+
+<symbol id="home_outline" viewBox="0 0 16 16">
+	<path fill="#34beed" d="M 8,0 l 8,8 h-2 v8 h-12 v-8 h-2 z M 6,8 v4 h4 v-4 z" />
+</symbol>
+
+<symbol id="power_outline" viewBox="0 0 16 16">
+	<path fill="none" stroke="#cc3333" stroke-width="1.5" stroke-linecap="round" d="M 8,1 v7 M 5.5,3 a 5.5,5.5 0,1,0 5,0" />
+</symbol>
+
+<symbol id="button_A" viewBox="0 0 34 34">
+	<use xlink:href="#button_shiny" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">A</text>
+</symbol>
+
+<symbol id="button_minus" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte" x="0" y="0" width="34" height="34" />
+	<line x1="10" y1="17" x2="24" y2="17" stroke-width="1.5" stroke="#909090" stroke-linecap="round" />
+</symbol>
+<symbol id="button_plus" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte" x="0" y="0" width="34" height="34" />
+	<line x1="10" y1="17" x2="24" y2="17" stroke-width="1.5" stroke="#909090" stroke-linecap="round" />
+	<line x1="17" y1="10" x2="17" y2="24" stroke-width="1.5" stroke="#909090" stroke-linecap="round" />
+</symbol>
+<symbol id="button_1" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">1</text>
+</symbol>
+<symbol id="button_2" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">2</text>
+</symbol>
+<symbol id="button_home" viewBox="0 0 34 34">
+	<use xlink:href="#button_inset" x="0" y="0" width="34" height="34" />
+	<use xlink:href="#home_outline" x="8" y="8" width="18" height="18" />
+</symbol>
+<symbol id="button_power" viewBox="0 0 34 34">
+	<use xlink:href="#button_inset" x="0" y="0" width="34" height="34" />
+	<use xlink:href="#power_outline" x="8" y="8" width="18" height="18" />
+</symbol>
+<symbol id="button_C" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte_oval" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">C</text>
+</symbol>
+
+<symbol id="button_classic_a" viewBox="0 0 34 34">
+	<use xlink:href="#button_shiny" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">a</text>
+</symbol>
+<symbol id="button_classic_b" viewBox="0 0 34 34">
+	<use xlink:href="#button_shiny" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">b</text>
+</symbol>
+<symbol id="button_classic_x" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">x</text>
+</symbol>
+<symbol id="button_classic_y" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">y</text>
+</symbol>
+<symbol id="button_classic_ZL" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte_oval" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">ZL</text>
+</symbol>
+<symbol id="button_classic_ZR" viewBox="0 0 34 34">
+	<use xlink:href="#button_matte_oval" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">ZR</text>
+</symbol>
+
+<!-- ** Wii Remote B button (custom shape). ** -->
+
+<radialGradient id="button_B_gradient1" cx="0.5" cy="0.25" r="0.5" fx="0.5" fy="-0.25">
+	<stop offset="0" stop-color="#000000" stop-opacity="0.5"/>
+	<stop offset="1" stop-color="#000000" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="button_B_gradient2" cx="0.5" cy="0.5" r="0.666" fx="0.25" fy="0.25">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+
+<symbol id="button_B" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<rect x="4.5" y="0.75" width="22" height="30" rx="2" opacity="0.887" fill="#000000" stroke-width="1" stroke="#000000" />
+
+	<!-- Base. -->
+	<rect x="4" y="0" width="22" height="30" rx="2" fill="#d0d4d6" stroke-width="1" stroke="#8a8993" />
+
+	<!-- Specular lighting. -->
+	<path d="M 3.5,0.5 a 12,18 0,0,0 23,0 z" fill="url(#button_B_gradient1)" stroke="none"  />
+	<path d="M 4.5,28.5 a 12,8 0,0,1 21,0 z" fill="url(#button_B_gradient2)" stroke="none"  />
+
+	<!-- The label is placed incorrectly here. In the actual controller, it is placed at the edge. In this graphic, it is just centered, which makes it easier to read. -->
+	<text x="15" y="15" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">B</text>
+</symbol>
+
+<radialGradient id="button_Z_gradient1" cx="0.5" cy="0.25" r="1" fx="0.5" fy="-0.0625" gradientTransform="scale(0.175 1) translate(0.5 0)">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+
+<!-- ** Wii Nunchuk Z button (custom shape). ** -->
+
+<symbol id="button_Z" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<rect x="0.5" y="1.75" width="30" height="28" rx="2" opacity="0.887" fill="#000000" stroke-width="1" stroke="#000000" />
+
+	<!-- Base. -->
+	<rect x="0" y="1" width="30" height="28" rx="2" fill="#d0d4d6" stroke-width="1" stroke="#8a8993" />
+
+	<!-- Specular lighting. -->
+	<rect x="2" y="1.5" width="26" height="27" fill="url(#button_Z_gradient1)" stroke="none" />
+	<text x="15" y="15" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">Z</text>
+</symbol>
+
+<!-- ** Wii Classic Controller L and R buttons (custom shape). ** -->
+
+<symbol id="button_long_LR" viewBox="-2 -2 34 34">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="yellow"/ -->
+
+	<!-- Shadow. -->
+	<rect x="0.5" y="7.5" width="30" height="16" rx="8" opacity="0.887" fill="#000000" stroke-width="1" stroke="#000000" />
+
+	<!-- Base. -->
+	<rect x="0" y="7" width="30" height="16" rx="8" fill="#d0d4d6" stroke-width="1" stroke="#8a8993" />
+
+	<!-- Specular lighting. -->
+	<rect x="1" y="8" width="28" height="14" rx="8" fill="url(#button_Z_gradient1)" stroke="none" />
+</symbol>
+
+<symbol id="button_classic_L" viewBox="0 0 34 34">
+	<use xlink:href="#button_long_LR" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">L</text>
+</symbol>
+<symbol id="button_classic_R" viewBox="0 0 34 34">
+	<use xlink:href="#button_long_LR" x="0" y="0" width="34" height="34" />
+	<text x="17" y="17" font-size="15px" font-family="Arial, sans-serif" fill="#909090" text-anchor="middle" dominant-baseline="central">R</text>
+</symbol>
+
+<!-- ** Analog stick from Wii Nunchuk or Classic Controller. ** -->
+
+<radialGradient id="analog_stick_gradient1" cx="0.5" cy="0.5" r="0.5">
+	<stop offset="0" stop-color="#fff"/>
+	<stop offset="1" stop-color="#eee"/>
+</radialGradient>
+<linearGradient id="analog_stick_gradient2" x1="0" y1="0.5" x2="0" y2="1">
+	<stop offset="0" stop-color="#fff"/>
+	<stop offset="1" stop-color="#ccc"/>
+</linearGradient>
+<linearGradient id="analog_stick_gradient3" x1="0" y1="0.5" x2="0" y2="1">
+	<stop offset="0.5" stop-color="#999"/>
+	<stop offset="1" stop-color="#ccc"/>
+</linearGradient>
+<radialGradient id="analog_stick_shadow" cx="0.5" cy="0.5" r="0.5">
+	<stop offset="0.5" stop-color="#000" stop-opacity="1"/>
+	<stop offset="1" stop-color="#000" stop-opacity="0"/>
+</radialGradient>
+
+<!-- Based on http://www.mariowiki.com/File:Def_Stick.svg -->
+<symbol id="analog_stick" viewBox="0 0 32 32">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="lime"/ -->
+
+	<!-- Base. -->
+	<ellipse cx="16" cy="21" rx="10" ry="9" stroke-width="0.8" stroke="#000" fill="url(#analog_stick_gradient3)"/>
+
+	<!-- Shadow. -->
+	<ellipse cx="17" cy="17" rx="15" ry="12" opacity="0.887" stroke="none" fill="url(#analog_stick_shadow)"/>
+
+	<!-- Thumb stick. -->
+	<ellipse cx="16" cy="13" rx="15" ry="12" stroke-width="0.8" stroke="#000" fill="url(#analog_stick_gradient2)"/>
+	<ellipse cx="16" cy="10" rx="11" ry="8" stroke-width="0.4" stroke="#777" fill="url(#analog_stick_gradient1)"/>
+</symbol>
+
+<symbol id="twin_analog_sticks" viewBox="0 0 2 1">
+	<use xlink:href="#analog_stick" x="0" y="0" width="1" height="1" />
+	<use xlink:href="#analog_stick" x="1" y="0" width="1" height="1" />
+</symbol>
+
+<!-- ** A computer mouse. ** -->
+
+<radialGradient id="mouse_gradient" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.75">
+	<stop offset="0" stop-color="#fff"/>
+	<stop offset="1" stop-color="#ccc"/>
+</radialGradient>
+
+<radialGradient id="mouse_specular_gradient" cx="0.5" cy="0.25" r="1" fx="0.5" fy="-0.0625" gradientTransform="scale(0.333 1) translate(0.5 0)">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="1"/>
+	<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+</radialGradient>
+
+<linearGradient id="mouse_wheel_gradient_up" x1="0" y1="0" x2="0" y2="1">
+	<stop offset="0.333" stop-color="#0094ff" stop-opacity="0.75"/>
+	<stop offset="0.666" stop-color="#0094ff" stop-opacity="0"/>
+</linearGradient>
+
+<linearGradient id="mouse_wheel_gradient_down" xlink:href="#mouse_wheel_gradient_up" gradientTransform="translate(0 1) scale(1 -1)" />
+
+<path id="mouse_shape" d="M16,0 q8,0 9,4 q4,16 0,24 q-2,4 -9,4 q-7,0 -9,-4 q-4,-8 0,-24 q1,-4 9,-4 z" />
+<path id="mouse_left_button" d="M16,0 v2 q-2,0 -2,6 q0,6 2,6 v2 q -9,0 -9,-4 v-12 z" clip-path="url(#mouse_clip)" />
+<use id="mouse_right_button" xlink:href="#mouse_left_button" x="0" y="0" transform="translate(16 0) scale(-1 1) translate(-16 0)" />
+<path id="mouse_wheel" d="M16,2 q-2,0 -2,6 q0,6 2,6 q2,0 2,-6 q0,-6 -2,-6 z" />
+
+<clipPath id="mouse_clip" clipPathUnits="userSpaceOnUse">
+	<use xlink:href="#mouse_shape" x="0" y="0" />
+</clipPath>
+
+
+
+<!-- Inspired by https://openclipart.org/detail/211818/mouse -->
+<symbol id="mouse" viewBox="2 -2 28 36">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="lime"/ -->
+
+	<!-- Shadow. -->
+	<use xlink:href="#mouse_shape" x="1" y="0.5" opacity="0.887" stroke-width="1" stroke="#000000" fill="#000000" />
+
+	<!-- Base. -->
+	<use xlink:href="#mouse_shape" x="0" y="0" stroke="none" fill="url(#mouse_gradient)" />
+
+	<!-- Specular lighting. -->
+	<rect x="3" y="0" width="26" height="32" fill="url(#mouse_specular_gradient)" clip-path="url(#mouse_clip)" />
+
+	<!-- Buttons. -->
+	<use xlink:href="#mouse_left_button"  x="0" y="0" stroke-width="0.25" stroke="#8a8993" fill="none" />
+	<use xlink:href="#mouse_right_button" x="0" y="0" stroke-width="0.25" stroke="#8a8993" fill="none" />
+
+	<!-- The dark outline. -->
+	<use xlink:href="#mouse_shape" x="0" y="0" stroke-width="0.5" stroke="#8a8993" fill="none" />
+</symbol>
+
+<symbol id="mouse_left" viewBox="0 0 28 36">
+	<use xlink:href="#mouse" x="0" y="0" width="28" height="36" />
+	<use xlink:href="#mouse_left_button" x="-2" y="2" stroke="none" fill="url(#dpad_press_gradient)"/>
+</symbol>
+
+<symbol id="mouse_right" viewBox="0 0 28 36">
+	<use xlink:href="#mouse" x="0" y="0" width="28" height="36" />
+	<use xlink:href="#mouse_right_button" x="-2" y="2" stroke="none" fill="url(#dpad_press_gradient)"/>
+</symbol>
+
+<symbol id="mouse_up" viewBox="0 0 28 36">
+	<use xlink:href="#mouse" x="0" y="0" width="28" height="36" />
+	<use xlink:href="#mouse_wheel" x="-2" y="2" stroke="none" fill="url(#mouse_wheel_gradient_up)"/>
+</symbol>
+
+<symbol id="mouse_down" viewBox="0 0 28 36">
+	<use xlink:href="#mouse" x="0" y="0" width="28" height="36" />
+	<use xlink:href="#mouse_wheel" x="-2" y="2" stroke="none" fill="url(#mouse_wheel_gradient_down)"/>
+</symbol>
+
+<!-- ** A key from a keyboard. ** -->
+
+<linearGradient id="key_gradient1" x1="0" y1="0" x2="0" y2="1">
+	<stop offset="0" stop-color="#d8d8d8" />
+	<stop offset="1" stop-color="#a3a3a3" />
+</linearGradient>
+
+<linearGradient id="key_gradient2" x1="0" y1="0" x2="1" y2="0">
+	<stop offset="0"     stop-color="#cccccc" />
+	<stop offset="0.666" stop-color="#eeeeee" />
+	<stop offset="1"     stop-color="#cccccc" />
+</linearGradient>
+
+
+
+<!-- Inspired by https://openclipart.org/detail/27549/keyboard-keys -->
+<symbol id="key" viewBox="-2 -2 36 32">
+	<!-- DEBUG: rect x="-5" y="-5" width="50" height="50" fill="lime"/ -->
+
+	<!-- Shadow. -->
+	<rect x="1" y="1" width="32" height="28" rx="4" stroke-width="0.5" stroke="#000000" fill="#000000" />
+
+	<!-- Base. -->
+	<rect x="0" y="0" width="32" height="28" rx="4" stroke-width="0.5" stroke="#8a8993" fill="url(#key_gradient1)" />
+	<rect x="3" y="2" width="26" height="23" rx="3" stroke-width="0.25" stroke="#8a8993" fill="url(#key_gradient2)" />
+
+</symbol>
+
+<!-- ** Symbols for keyboard keys. For an arbitrary reason, they are restricted to 13x13. ** -->
+
+<path id="arrow_up" d="M 2,0 l 2,5 h-1.5 v8 h-1 v-8 h-1.5 z" />
+<use id="arrow_right" xlink:href="#arrow_up" x="0" y="0" transform="translate(13 0) rotate(90)" />
+<use id="arrow_down" xlink:href="#arrow_up" x="0" y="0" transform="translate(4 13) rotate(180)" />
+<use id="arrow_left" xlink:href="#arrow_up" x="0" y="0" transform="translate(0 4) rotate(270)" />
+<path id="arrow_enter" d="M0,10 l5,-2 v1.5 h7 v-8 h1 v9 h-8 v1.5 z" />
+
+<!-- Based on https://commons.wikimedia.org/wiki/File:Windows_logo_-_2012.svg -->
+<symbol id="win" viewBox="0 0 39 40">
+	<!-- fill="#00adef" -->
+	<path d="
+		M 0,6  v13 h16 v-15.5 z
+		M 0,34 v-13 h16 v15.5 z
+		M 18,3.25 v15.75 h21 v-19 z
+		M 18,36.75 v-15.75 h21 v19 z" />
+</symbol>
+
+<symbol id="volume_down" viewBox="0 0 13 13">
+	<path d="M0,3 h2 l2,-2.5 q2,4 0,8 l-2,-2.5 h-2 z" />
+	<path d="M7,4 q-0.5,0.5 0,1 h5 q0.5,-0.5 0,-1 z" />
+</symbol>
+
+<symbol id="volume_up" viewBox="0 0 13 13">
+	<use xlink:href="#volume_down" x="0" y="0" width="13" height="13" />
+	<path d="M9,2 q0.5,-0.5 1,0 v5 q-0.5,0.5 -1,0 z" />
+	<!-- DEBUG: path d="
+		M0,0 h0.1 v13 h-0.1 z
+		M13,0 h-0.1 v13 h0.1 z
+		M0,0 v0.1 h13 v-0.1 z
+		M0,13 v-0.1 h13 v0.1 z
+		M0,6.5 v-0.1 h13 v0.2 z
+	" /-->
+</symbol>
+
+<path id="play" d="M0,0 l5.2,3 L0,6 z" />
+<path id="pause" d="M0,0 h2 v6 h-2 z M4,0 h2 v6 h-2 z" />
+<path id="stop" d="M0,0 h6 v6 h-6 z" />
+
+<symbol id="play_pause" viewBox="0 0 13 13">
+	<use xlink:href="#play" x="0" y="0" width="13" height="13" />
+	<use xlink:href="#pause" x="7" y="0" width="13" height="13" />
+</symbol>
+
+<symbol id="forward" viewBox="0 0 13 13">
+	<use xlink:href="#play" x="0" y="0" width="13" height="13" />
+	<use xlink:href="#play" x="5" y="0" width="13" height="13" />
+</symbol>
+
+<symbol id="rewind" viewBox="0 0 13 13">
+	<use xlink:href="#forward" x="0" y="0" width="13" height="13" transform="translate(10.2 0) scale(-1 1)" />
+</symbol>
+
+<symbol id="next" viewBox="0 0 13 13">
+	<use xlink:href="#forward" x="0" y="0" width="13" height="13" />
+	<path d="M10,0 h2 v6 h-2 z" />
+</symbol>
+
+<symbol id="previous" viewBox="0 0 13 13">
+	<use xlink:href="#next" x="0" y="0" width="13" height="13" transform="translate(12.2 0) scale(-1 1)" />
+</symbol>
+
+
+
+<symbol id="key_up" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#arrow_up" x="8" y="8" fill="#404020" />
+</symbol>
+
+<symbol id="key_right" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#arrow_right" x="8" y="8" fill="#404020" />
+</symbol>
+
+<symbol id="key_down" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#arrow_down" x="8" y="8" fill="#404020" />
+</symbol>
+
+<symbol id="key_left" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#arrow_left" x="8" y="8" fill="#404020" />
+</symbol>
+
+<symbol id="key_enter" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#arrow_enter" x="8" y="8" fill="#404020" />
+</symbol>
+
+
+
+
+<symbol id="key_win" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#win" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_volume_up" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#volume_up" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_volume_down" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#volume_down" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_play_pause" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#play_pause" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_stop" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#stop" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_previous" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#previous" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_next" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#next" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_rewind" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#rewind" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+<symbol id="key_forward" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<use xlink:href="#forward" x="8" y="8" width="13" height="13" fill="#404020" />
+</symbol>
+
+
+<symbol id="key_esc" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<text x="8" y="8" font-size="8px" font-family="Arial, sans-serif" font-style="italic" fill="#404020" text-anchor="start" dominant-baseline="text-before-edge">Esc</text>
+</symbol>
+
+<symbol id="key_pageup" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<text x="8" y="8" font-size="8px" font-family="Arial, sans-serif" font-style="italic" fill="#404020" text-anchor="start" dominant-baseline="text-before-edge">Page</text>
+	<text x="8" y="17" font-size="8px" font-family="Arial, sans-serif" font-style="italic" fill="#404020" text-anchor="start" dominant-baseline="text-before-edge">Up</text>
+</symbol>
+
+<symbol id="key_pagedown" viewBox="0 0 36 32">
+	<use xlink:href="#key" x="0" y="0" width="36" height="32" />
+	<text x="8" y="8" font-size="8px" font-family="Arial, sans-serif" font-style="italic" fill="#404020" text-anchor="start" dominant-baseline="text-before-edge">Page</text>
+	<text x="8" y="17" font-size="8px" font-family="Arial, sans-serif" font-style="italic" fill="#404020" text-anchor="start" dominant-baseline="text-before-edge">Down</text>
+</symbol>
+
+<symbol id="keys_arrows" viewBox="0 0 108 64">
+	<use xlink:href="#key_up"    x="36" y="0" width="36" height="32" />
+	<use xlink:href="#key_left"  x="0" y="32" width="36" height="32" />
+	<use xlink:href="#key_down"  x="36" y="32" width="36" height="32" />
+	<use xlink:href="#key_right" x="72" y="32" width="36" height="32" />
+</symbol>
+
+<!-- ** Wii Remote LED indicators. ** -->
+
+<radialGradient id="wii_led_light_gradient" cx="0.5" cy="0.5" r="0.5">
+	<stop offset="0" stop-color="#ffffff" stop-opacity="0.75"/>
+	<stop offset="1" stop-color="#adcefb" stop-opacity="0"/>
+</radialGradient>
+
+<!-- Colors from http://ftpmerou.free.fr/ubuntu/wiimote/wiimote.svg -->
+<g id="wii_led_off">
+	<rect x="-6" y="-6" width="12" height="12" stroke-width="1" stroke="#979a9c" fill="#818588" />
+</g>
+<g id="wii_led_on">
+	<rect x="-6" y="-6" width="12" height="12" stroke-width="1" stroke="#59b2e3" fill="#83cff8" />
+	<circle cx="0" cy="0" r="9" fill="url(#wii_led_light_gradient)" />
+</g>
+
+<symbol id="wii_leds_12" viewBox="0 0 80 20">
+	<use xlink:href="#wii_led_on"  x="10" y="10" />
+	<use xlink:href="#wii_led_on"  x="30" y="10" />
+	<use xlink:href="#wii_led_off" x="50" y="10" />
+	<use xlink:href="#wii_led_off" x="70" y="10" />
+</symbol>
+
+<symbol id="wii_leds_13" viewBox="0 0 80 20">
+	<use xlink:href="#wii_led_on"  x="10" y="10" />
+	<use xlink:href="#wii_led_off" x="30" y="10" />
+	<use xlink:href="#wii_led_on"  x="50" y="10" />
+	<use xlink:href="#wii_led_off" x="70" y="10" />
+</symbol>
+
+<symbol id="wii_leds_14" viewBox="0 0 80 20">
+	<use xlink:href="#wii_led_on"  x="10" y="10" />
+	<use xlink:href="#wii_led_off" x="30" y="10" />
+	<use xlink:href="#wii_led_off" x="50" y="10" />
+	<use xlink:href="#wii_led_on"  x="70" y="10" />
+</symbol>
+
+<symbol id="wii_leds_any" viewBox="0 0 80 80">
+	<use xlink:href="#wii_led_on"  x="10" y="10" />
+	<use xlink:href="#wii_led_off" x="30" y="10" />
+	<use xlink:href="#wii_led_off" x="50" y="10" />
+	<use xlink:href="#wii_led_off" x="70" y="10" />
+
+	<use xlink:href="#wii_led_off" x="10" y="30" />
+	<use xlink:href="#wii_led_on"  x="30" y="30" />
+	<use xlink:href="#wii_led_off" x="50" y="30" />
+	<use xlink:href="#wii_led_off" x="70" y="30" />
+
+	<use xlink:href="#wii_led_off" x="10" y="50" />
+	<use xlink:href="#wii_led_off" x="30" y="50" />
+	<use xlink:href="#wii_led_on"  x="50" y="50" />
+	<use xlink:href="#wii_led_off" x="70" y="50" />
+
+	<use xlink:href="#wii_led_off" x="10" y="70" />
+	<use xlink:href="#wii_led_off" x="30" y="70" />
+	<use xlink:href="#wii_led_off" x="50" y="70" />
+	<use xlink:href="#wii_led_on"  x="70" y="70" />
+</symbol>
+
+
+
+<symbol id="wii_leds_12_square" viewBox="0 0 1 1">
+	<use xlink:href="#wii_leds_12"  x="0" y="0" width="1" height="1" />
+</symbol>
+
+<symbol id="wii_leds_13_square" viewBox="0 0 1 1">
+	<use xlink:href="#wii_leds_13"  x="0" y="0" width="1" height="1" />
+</symbol>
+
+<symbol id="wii_leds_14_square" viewBox="0 0 1 1">
+	<use xlink:href="#wii_leds_14"  x="0" y="0" width="1" height="1" />
+</symbol>
+
+
+
+
+<symbol id="home_and_down" viewBox="0 0 2 1">
+	<use xlink:href="#button_home"  x="0" y="0" width="1" height="1" />
+	<use xlink:href="#dpad_down"  x="1" y="0" width="1" height="1" />
+</symbol>
+
+<symbol id="home_and_left" viewBox="0 0 2 1">
+	<use xlink:href="#button_home"  x="0" y="0" width="1" height="1" />
+	<use xlink:href="#dpad_left"  x="1" y="0" width="1" height="1" />
+</symbol>
+
+<symbol id="home_and_up" viewBox="0 0 2 1">
+	<use xlink:href="#button_home"  x="0" y="0" width="1" height="1" />
+	<use xlink:href="#dpad_up"  x="1" y="0" width="1" height="1" />
+</symbol>
+
+<symbol id="home_and_right" viewBox="0 0 2 1">
+	<use xlink:href="#button_home"  x="0" y="0" width="1" height="1" />
+	<use xlink:href="#dpad_right"  x="1" y="0" width="1" height="1" />
+</symbol>
+
+
+<!-- ** End of definitions. ** -->
+
+
+<linearGradient id="dolphin_gradient" x1="0" y1="0" x2="0" y2="1">
+	<stop offset="0" stop-color="#46D4FF" />
+	<stop offset="1" stop-color="#1792FF" />
+</linearGradient>
+
+<!-- Based on https://commons.wikimedia.org/wiki/File:Dolphin-logo.svg -->
+<symbol id="dolphin" viewBox="0 0 2048.0371 1128.51">
+	<path fill="#0057ab" d="m 2046.8003,1078.6481 c -6.813,-22.834 -49.283,-160.53702 -120.831,-292.56702 -94.261,-173.943 -175.33,-298.279 -310.402,-424.563 -43.445,-40.618 -84.6,-76.916 -127.448,-109.498 l 0.047,0 c 0,0 -0.329,-0.232 -0.926,-0.673 -0.801,-0.607 -1.602,-1.214 -2.403,-1.818 -15.987,-12.352 -83.345,-69.109 -59.382,-131.767 8.031,-21 27.421,-38.45 50.479,-52.569 l 124.091,-1.011 0,-46 -0.03,0.001 c 10e-4,0 0.016,-0.003 0.016,-0.003 0,0 -72.661,-24.686 -199.807,-16.53 -119.328,7.655 -226.545,77.432 -246.588,87.241 -64.265,-18.396 -137.59,-34.619 -223.34403,-49.168 -296.609,-50.323 -547.639,29.896 -673.604,117.325 -165.101,114.592 -160.533,221.368 -174.144,274.776 -8.431,33.085 -83.408,94.263 -82.51,137.183 l 0,45.18 15.489,15.96 366.732,-136.734 212.575,-14.886 363.523,287.636 113.66803,16.846 0,-45.969 -0.087,-0.035 c 0.022,0 0.035,0 0.035,0 0,0 -95.43403,-39.648 -154.14603,-98.356 -39.956,-39.953 -49.518,-100.64 -51.552,-135.342 l 0.359,0.033 c 237.41163,48.3327 403.74023,95.9459 569.20303,230.408 l 108.183,89.527 0,-45.969 -0.358,-0.332 c -1.596,-1.983 -124.799,-154.603 -331.827,-256.712 -171.102,-84.392 -311.58503,-126.087 -506.22903,-135.527 -212.756,-10.319 -369.522,16.999 -369.522,16.999 0,0 4.385,-94.537 165.003,-169.88 139.666,-65.516 359.388,-76.481 611.55803,-12.15 356.261,90.886 477.766,245.646 631.012,405.573 128.3132,136.7139 206.0481,267.9525 262.651,414.13702 l 41.753,89.096 0,-46.264 -1.237,-3.603 z" />
+	<path fill="url(#dolphin_gradient)" d="m 1925.9693,832.08008 c -94.261,-173.943 -175.33,-298.279 -310.402,-424.563 -43.446,-40.619 -84.601,-76.917 -127.45,-109.499 l 0.049,0.01 c 0,0 -0.34,-0.24 -0.962,-0.699 -0.773,-0.586 -1.547,-1.172 -2.321,-1.757 -15.904,-12.279 -83.413,-69.084 -59.428,-131.801 26.32,-68.822 174.556,-99.582 174.556,-99.582 0,0 -72.661,-24.686 -199.807,-16.53 -119.328,7.655 -226.545,77.432 -246.588,87.241 -64.265,-18.396 -137.59,-34.619 -223.34403,-49.168 -296.609,-50.323 -547.639,29.896 -673.604,117.325 -165.101,114.592 -160.533,221.368 -174.144,274.776 -9.794,38.432 -109.389,114.772 -75.534,156.367 21.122,25.95 91.411,-9.289 148.113,-32.611 59.615,-24.521 64.209,-37.859 227.133,-62.168 74.956,-11.184 153.843,-14.393 212.575,-14.886 22.855,48.26 79.68,147.46 178.133,195.042 132.934,64.246 299.00503,63.438 299.00503,63.438 0,0 -95.43403,-39.648 -154.14603,-98.356 -39.956,-39.953 -49.518,-100.64 -51.552,-135.342 l 0.359,0.033 c 96.193,18.278 180.21503,31.468 381.15603,108.425 175.815,67.334 295.91,165.256 295.91,165.256 0,0 -123.479,-153.98 -331.865,-256.76 -171.102,-84.391 -311.58503,-126.086 -506.22903,-135.526 -212.756,-10.319 -369.522,16.999 -369.522,16.999 0,0 4.385,-94.537 165.003,-169.88 139.666,-65.516 359.388,-76.481 611.55803,-12.15 356.261,90.886 477.766,245.646 631.012,405.573 163.107,170.22 304.146,456.68502 304.146,456.68502 0,0 -43.489,-151.35702 -121.81,-295.88702 z" />
+</symbol>
+
+
+</defs>
+
+
+
+	<g class="cheatsheet">
+
+		<g class="sections">
+		
+		
+
+			
+			
+
+			<rect x="0" y="0" width="372" height="68" class="section" />
+			
+		
+
+			
+			
+
+			<rect x="0" y="68" width="372" height="240" class="section" />
+			
+		
+
+			
+			
+
+			<rect x="0" y="308" width="372" height="60" class="section" />
+			
+		
+
+			
+			
+
+			<rect x="0" y="368" width="372" height="260" class="section" />
+			
+		
+		</g>
+
+		<g class="section_labels">
+		
+		
+
+			
+			
+
+			
+				<text x="0" y="0" transform="translate(6.0 34.0) rotate(-90)" class="section_label"></text>
+			
+			
+		
+
+			
+			
+
+			
+				<text x="0" y="0" transform="translate(6.0 188.0) rotate(-90)" class="section_label">Wii Remote</text>
+			
+			
+		
+
+			
+			
+
+			
+				<text x="0" y="0" transform="translate(6.0 338.0) rotate(-90)" class="section_label">Nunchuk</text>
+			
+			
+		
+
+			
+			
+
+			
+				<text x="0" y="0" transform="translate(6.0 498.0) rotate(-90)" class="section_label">Classic Controller</text>
+			
+			
+		
+		</g>
+
+		<g class="columns">
+		
+		
+			<rect x="0" y="0" width="12" height="628" class="column" />
+			
+		
+			<rect x="12" y="0" width="35" height="628" class="column" />
+			
+		
+			<rect x="47" y="0" width="65" height="628" class="column" />
+			
+		
+			<rect x="112" y="0" width="65" height="628" class="column" />
+			
+		
+			<rect x="177" y="0" width="65" height="628" class="column" />
+			
+		
+			<rect x="242" y="0" width="65" height="628" class="column" />
+			
+		
+			<rect x="307" y="0" width="65" height="628" class="column" />
+			
+		
+		</g>
+
+		<g class="rows">
+		
+		
+			<g class="section_rows">
+			
+				
+				
+				<rect x="12" y="0" width="360" height="10" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="10" width="360" height="18" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="28" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="48" width="360" height="20" class="row" />
+				
+			
+			</g>
+		
+			<g class="section_rows">
+			
+				
+				
+				<rect x="12" y="68" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="88" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="108" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="128" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="148" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="168" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="188" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="208" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="228" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="248" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="268" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="288" width="360" height="20" class="row" />
+				
+			
+			</g>
+		
+			<g class="section_rows">
+			
+				
+				
+				<rect x="12" y="308" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="328" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="348" width="360" height="20" class="row" />
+				
+			
+			</g>
+		
+			<g class="section_rows">
+			
+				
+				
+				<rect x="12" y="368" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="388" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="408" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="428" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="448" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="468" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="488" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="508" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="528" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="548" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="568" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="588" width="360" height="20" class="row" />
+				
+			
+				
+				
+				<rect x="12" y="608" width="360" height="20" class="row" />
+				
+			
+			</g>
+		
+		</g>
+
+		<g class="data">
+		
+		
+			<g class="section_data">
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=0 width=12 height=10 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=0 width=35 height=10 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=0 width=65 height=10 type=t value=Mode 1A -->
+						
+							<text x="79.5" y="5.0">Mode 1A</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=0 width=65 height=10 type=t value=Mode 1B -->
+						
+							<text x="144.5" y="5.0">Mode 1B</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=0 width=65 height=10 type=t value=Mode 2 -->
+						
+							<text x="209.5" y="5.0">Mode 2</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=0 width=65 height=10 type=t value=Mode 3 -->
+						
+							<text x="274.5" y="5.0">Mode 3</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=0 width=65 height=10 type=t value=Mode 4 -->
+						
+							<text x="339.5" y="5.0">Mode 4</text>
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=10 width=12 height=18 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=10 width=35 height=18 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=10 width=65 height=18 type=T value=Keyboard and Mouse
+Normal -->
+						
+							
+							
+							
+							
+								<text x="79.5" y="16.0">Keyboard and Mouse</text>
+							
+								<text x="79.5" y="22.0">Normal</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=10 width=65 height=18 type=T value=Keyboard and Mouse
+Multimedia -->
+						
+							
+							
+							
+							
+								<text x="144.5" y="16.0">Keyboard and Mouse</text>
+							
+								<text x="144.5" y="22.0">Multimedia</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=10 width=65 height=18 type=T value=Keyboard and Mouse
+Game -->
+						
+							
+							
+							
+							
+								<text x="209.5" y="16.0">Keyboard and Mouse</text>
+							
+								<text x="209.5" y="22.0">Game</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=10 width=65 height=18 type=t value=Game Controller -->
+						
+							<text x="274.5" y="19.0">Game Controller</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=10 width=65 height=18 type=T value=Wii Remote Emulation
+for Dolphin emulator -->
+						
+							
+							
+							
+							
+								<text x="339.5" y="16.0">Wii Remote Emulation</text>
+							
+								<text x="339.5" y="22.0">for Dolphin emulator</text>
+							
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=28 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=28 width=35 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=28 width=65 height=20 type=# value=wii_leds_12_square -->
+						
+							<use xlink:href="#wii_leds_12_square" x="48" y="29" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=28 width=65 height=20 type=# value=wii_leds_13_square -->
+						
+							<use xlink:href="#wii_leds_13_square" x="113" y="29" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=28 width=65 height=20 type=# value=wii_leds_14_square -->
+						
+							<use xlink:href="#wii_leds_14_square" x="178" y="29" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=28 width=65 height=20 type=# value=wii_leds_any -->
+						
+							<use xlink:href="#wii_leds_any" x="243" y="29" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=28 width=65 height=20 type=# value=wii_leds_any -->
+						
+							<use xlink:href="#wii_leds_any" x="308" y="29" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=48 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=48 width=35 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=48 width=65 height=20 type=# value=home_and_down -->
+						
+							<use xlink:href="#home_and_down" x="48" y="49" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=48 width=65 height=20 type=# value=home_and_down -->
+						
+							<use xlink:href="#home_and_down" x="113" y="49" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=48 width=65 height=20 type=# value=home_and_left -->
+						
+							<use xlink:href="#home_and_left" x="178" y="49" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=48 width=65 height=20 type=# value=home_and_up -->
+						
+							<use xlink:href="#home_and_up" x="243" y="49" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=48 width=65 height=20 type=# value=home_and_right -->
+						
+							<use xlink:href="#home_and_right" x="308" y="49" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+			</g>
+		
+			<g class="section_data">
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=68 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=68 width=35 height=20 type=t value=IR Camera -->
+						
+							<text x="29.5" y="78.0">IR Camera</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=68 width=65 height=20 type=# value=mouse -->
+						
+							<use xlink:href="#mouse" x="48" y="69" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=68 width=65 height=20 type=# value=mouse -->
+						
+							<use xlink:href="#mouse" x="113" y="69" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=68 width=65 height=20 type=# value=mouse -->
+						
+							<use xlink:href="#mouse" x="178" y="69" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=68 width=65 height=20 type=T value=Alone: nothing
++Nunchuk: extra axes -->
+						
+							
+							
+							
+							
+								<text x="274.5" y="74.66666666666667">Alone: nothing</text>
+							
+								<text x="274.5" y="81.33333333333333">+Nunchuk: extra axes</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=68 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="69" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=88 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=88 width=35 height=20 type=# value=dpad_up -->
+						
+							<use xlink:href="#dpad_up" x="13" y="89" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=88 width=65 height=20 type=# value=key_up -->
+						
+							<use xlink:href="#key_up" x="48" y="89" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=88 width=65 height=20 type=# value=key_stop -->
+						
+							<use xlink:href="#key_stop" x="113" y="89" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=88 width=65 height=20 type=# value=key_up -->
+						
+							<use xlink:href="#key_up" x="178" y="89" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=88 width=65 height=20 type=T value=Alone: rotated X/Y
++Nunchuk: POV -->
+						
+							
+							
+							
+							
+								<text x="274.5" y="94.66666666666667">Alone: rotated X/Y</text>
+							
+								<text x="274.5" y="101.33333333333333">+Nunchuk: POV</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=88 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="89" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=108 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=108 width=35 height=20 type=# value=dpad_down -->
+						
+							<use xlink:href="#dpad_down" x="13" y="109" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=108 width=65 height=20 type=# value=key_down -->
+						
+							<use xlink:href="#key_down" x="48" y="109" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=108 width=65 height=20 type=# value=key_play_pause -->
+						
+							<use xlink:href="#key_play_pause" x="113" y="109" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=108 width=65 height=20 type=# value=key_down -->
+						
+							<use xlink:href="#key_down" x="178" y="109" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=108 width=65 height=20 type=T value=Alone: rotated X/Y
++Nunchuk: POV -->
+						
+							
+							
+							
+							
+								<text x="274.5" y="114.66666666666667">Alone: rotated X/Y</text>
+							
+								<text x="274.5" y="121.33333333333333">+Nunchuk: POV</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=108 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="109" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=128 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=128 width=35 height=20 type=# value=dpad_left -->
+						
+							<use xlink:href="#dpad_left" x="13" y="129" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=128 width=65 height=20 type=# value=key_left -->
+						
+							<use xlink:href="#key_left" x="48" y="129" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=128 width=65 height=20 type=# value=key_previous -->
+						
+							<use xlink:href="#key_previous" x="113" y="129" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=128 width=65 height=20 type=# value=key_left -->
+						
+							<use xlink:href="#key_left" x="178" y="129" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=128 width=65 height=20 type=T value=Alone: rotated X/Y
++Nunchuk: POV -->
+						
+							
+							
+							
+							
+								<text x="274.5" y="134.66666666666666">Alone: rotated X/Y</text>
+							
+								<text x="274.5" y="141.33333333333334">+Nunchuk: POV</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=128 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="129" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=148 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=148 width=35 height=20 type=# value=dpad_right -->
+						
+							<use xlink:href="#dpad_right" x="13" y="149" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=148 width=65 height=20 type=# value=key_right -->
+						
+							<use xlink:href="#key_right" x="48" y="149" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=148 width=65 height=20 type=# value=key_next -->
+						
+							<use xlink:href="#key_next" x="113" y="149" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=148 width=65 height=20 type=# value=key_right -->
+						
+							<use xlink:href="#key_right" x="178" y="149" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=148 width=65 height=20 type=T value=Alone: rotated X/Y
++Nunchuk: POV -->
+						
+							
+							
+							
+							
+								<text x="274.5" y="154.66666666666666">Alone: rotated X/Y</text>
+							
+								<text x="274.5" y="161.33333333333334">+Nunchuk: POV</text>
+							
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=148 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="149" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=168 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=168 width=35 height=20 type=# value=button_1 -->
+						
+							<use xlink:href="#button_1" x="13" y="169" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=168 width=65 height=20 type=# value=key_pageup -->
+						
+							<use xlink:href="#key_pageup" x="48" y="169" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=168 width=65 height=20 type=# value=key_forward -->
+						
+							<use xlink:href="#key_forward" x="113" y="169" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=168 width=65 height=20 type=# value=key_volume_up -->
+						
+							<use xlink:href="#key_volume_up" x="178" y="169" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=168 width=65 height=20 type=t value=Button 1 -->
+						
+							<text x="274.5" y="178.0">Button 1</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=168 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="169" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=188 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=188 width=35 height=20 type=# value=button_2 -->
+						
+							<use xlink:href="#button_2" x="13" y="189" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=188 width=65 height=20 type=# value=key_pagedown -->
+						
+							<use xlink:href="#key_pagedown" x="48" y="189" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=188 width=65 height=20 type=# value=key_rewind -->
+						
+							<use xlink:href="#key_rewind" x="113" y="189" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=188 width=65 height=20 type=# value=key_volume_down -->
+						
+							<use xlink:href="#key_volume_down" x="178" y="189" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=188 width=65 height=20 type=t value=Button 2 -->
+						
+							<text x="274.5" y="198.0">Button 2</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=188 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="189" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=208 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=208 width=35 height=20 type=# value=button_A -->
+						
+							<use xlink:href="#button_A" x="13" y="209" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=208 width=65 height=20 type=# value=mouse_right -->
+						
+							<use xlink:href="#mouse_right" x="48" y="209" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=208 width=65 height=20 type=# value=mouse_right -->
+						
+							<use xlink:href="#mouse_right" x="113" y="209" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=208 width=65 height=20 type=# value=mouse_left -->
+						
+							<use xlink:href="#mouse_left" x="178" y="209" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=208 width=65 height=20 type=t value=Button 3 -->
+						
+							<text x="274.5" y="218.0">Button 3</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=208 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="209" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=228 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=228 width=35 height=20 type=# value=button_B -->
+						
+							<use xlink:href="#button_B" x="13" y="229" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=228 width=65 height=20 type=# value=mouse_left -->
+						
+							<use xlink:href="#mouse_left" x="48" y="229" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=228 width=65 height=20 type=# value=mouse_left -->
+						
+							<use xlink:href="#mouse_left" x="113" y="229" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=228 width=65 height=20 type=# value=mouse_right -->
+						
+							<use xlink:href="#mouse_right" x="178" y="229" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=228 width=65 height=20 type=t value=Button 4 -->
+						
+							<text x="274.5" y="238.0">Button 4</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=228 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="229" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=248 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=248 width=35 height=20 type=# value=button_minus -->
+						
+							<use xlink:href="#button_minus" x="13" y="249" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=248 width=65 height=20 type=# value=mouse_up -->
+						
+							<use xlink:href="#mouse_up" x="48" y="249" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=248 width=65 height=20 type=# value=key_volume_down -->
+						
+							<use xlink:href="#key_volume_down" x="113" y="249" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=248 width=65 height=20 type=# value=key_esc -->
+						
+							<use xlink:href="#key_esc" x="178" y="249" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=248 width=65 height=20 type=t value=Button 5 -->
+						
+							<text x="274.5" y="258.0">Button 5</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=248 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="249" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=268 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=268 width=35 height=20 type=# value=button_plus -->
+						
+							<use xlink:href="#button_plus" x="13" y="269" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=268 width=65 height=20 type=# value=mouse_down -->
+						
+							<use xlink:href="#mouse_down" x="48" y="269" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=268 width=65 height=20 type=# value=key_volume_up -->
+						
+							<use xlink:href="#key_volume_up" x="113" y="269" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=268 width=65 height=20 type=# value=key_enter -->
+						
+							<use xlink:href="#key_enter" x="178" y="269" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=268 width=65 height=20 type=t value=Button 6 -->
+						
+							<text x="274.5" y="278.0">Button 6</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=268 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="269" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=288 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=288 width=35 height=20 type=# value=button_home -->
+						
+							<use xlink:href="#button_home" x="13" y="289" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=288 width=65 height=20 type=# value=key_win -->
+						
+							<use xlink:href="#key_win" x="48" y="289" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=288 width=65 height=20 type=# value=key_win -->
+						
+							<use xlink:href="#key_win" x="113" y="289" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=288 width=65 height=20 type=# value=key_win -->
+						
+							<use xlink:href="#key_win" x="178" y="289" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=288 width=65 height=20 type=t value=Button 12 -->
+						
+							<text x="274.5" y="298.0">Button 12</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=288 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="289" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+			</g>
+		
+			<g class="section_data">
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=308 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=308 width=35 height=20 type=# value=analog_stick -->
+						
+							<use xlink:href="#analog_stick" x="13" y="309" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=308 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="318.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=308 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="318.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=308 width=65 height=20 type=# value=keys_arrows -->
+						
+							<use xlink:href="#keys_arrows" x="178" y="309" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=308 width=65 height=20 type=t value=Analog X/Y -->
+						
+							<text x="274.5" y="318.0">Analog X/Y</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=308 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="309" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=328 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=328 width=35 height=20 type=# value=button_Z -->
+						
+							<use xlink:href="#button_Z" x="13" y="329" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=328 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="338.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=328 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="338.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=328 width=65 height=20 type=# value=mouse_left -->
+						
+							<use xlink:href="#mouse_left" x="178" y="329" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=328 width=65 height=20 type=t value=Button 7 -->
+						
+							<text x="274.5" y="338.0">Button 7</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=328 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="329" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=348 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=348 width=35 height=20 type=# value=button_C -->
+						
+							<use xlink:href="#button_C" x="13" y="349" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=348 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="358.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=348 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="358.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=348 width=65 height=20 type=# value=mouse_right -->
+						
+							<use xlink:href="#mouse_right" x="178" y="349" width="63" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=348 width=65 height=20 type=t value=Button 8 -->
+						
+							<text x="274.5" y="358.0">Button 8</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=348 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="349" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+			</g>
+		
+			<g class="section_data">
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=368 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=368 width=35 height=20 type=# value=button_classic_y -->
+						
+							<use xlink:href="#button_classic_y" x="13" y="369" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=368 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="378.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=368 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="378.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=368 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="378.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=368 width=65 height=20 type=t value=Button 1 -->
+						
+							<text x="274.5" y="378.0">Button 1</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=368 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="369" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=388 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=388 width=35 height=20 type=# value=button_classic_x -->
+						
+							<use xlink:href="#button_classic_x" x="13" y="389" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=388 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="398.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=388 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="398.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=388 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="398.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=388 width=65 height=20 type=t value=Button 2 -->
+						
+							<text x="274.5" y="398.0">Button 2</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=388 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="389" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=408 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=408 width=35 height=20 type=# value=button_classic_b -->
+						
+							<use xlink:href="#button_classic_b" x="13" y="409" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=408 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="418.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=408 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="418.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=408 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="418.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=408 width=65 height=20 type=t value=Button 3 -->
+						
+							<text x="274.5" y="418.0">Button 3</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=408 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="409" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=428 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=428 width=35 height=20 type=# value=button_classic_a -->
+						
+							<use xlink:href="#button_classic_a" x="13" y="429" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=428 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="438.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=428 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="438.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=428 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="438.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=428 width=65 height=20 type=t value=Button 4 -->
+						
+							<text x="274.5" y="438.0">Button 4</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=428 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="429" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=448 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=448 width=35 height=20 type=# value=button_classic_L -->
+						
+							<use xlink:href="#button_classic_L" x="13" y="449" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=448 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="458.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=448 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="458.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=448 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="458.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=448 width=65 height=20 type=t value=Button 5 -->
+						
+							<text x="274.5" y="458.0">Button 5</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=448 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="449" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=468 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=468 width=35 height=20 type=# value=button_classic_R -->
+						
+							<use xlink:href="#button_classic_R" x="13" y="469" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=468 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="478.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=468 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="478.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=468 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="478.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=468 width=65 height=20 type=t value=Button 6 -->
+						
+							<text x="274.5" y="478.0">Button 6</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=468 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="469" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=488 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=488 width=35 height=20 type=# value=button_classic_ZL -->
+						
+							<use xlink:href="#button_classic_ZL" x="13" y="489" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=488 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="498.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=488 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="498.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=488 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="498.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=488 width=65 height=20 type=t value=Button 7 -->
+						
+							<text x="274.5" y="498.0">Button 7</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=488 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="489" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=508 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=508 width=35 height=20 type=# value=button_classic_ZR -->
+						
+							<use xlink:href="#button_classic_ZR" x="13" y="509" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=508 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="518.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=508 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="518.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=508 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="518.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=508 width=65 height=20 type=t value=Button 8 -->
+						
+							<text x="274.5" y="518.0">Button 8</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=508 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="509" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=528 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=528 width=35 height=20 type=# value=button_minus -->
+						
+							<use xlink:href="#button_minus" x="13" y="529" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=528 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="538.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=528 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="538.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=528 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="538.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=528 width=65 height=20 type=t value=Button 9 -->
+						
+							<text x="274.5" y="538.0">Button 9</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=528 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="529" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=548 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=548 width=35 height=20 type=# value=button_plus -->
+						
+							<use xlink:href="#button_plus" x="13" y="549" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=548 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="558.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=548 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="558.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=548 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="558.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=548 width=65 height=20 type=t value=Button 10 -->
+						
+							<text x="274.5" y="558.0">Button 10</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=548 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="549" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=568 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=568 width=35 height=20 type=# value=button_home -->
+						
+							<use xlink:href="#button_home" x="13" y="569" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=568 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="578.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=568 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="578.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=568 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="578.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=568 width=65 height=20 type=t value=Button 12 -->
+						
+							<text x="274.5" y="578.0">Button 12</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=568 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="569" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=588 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=588 width=35 height=20 type=# value=dpad -->
+						
+							<use xlink:href="#dpad" x="13" y="589" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=588 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="598.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=588 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="598.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=588 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="598.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=588 width=65 height=20 type=t value=POV -->
+						
+							<text x="274.5" y="598.0">POV</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=588 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="589" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+				<g class="section_data_row">
+				
+				
+				
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=0 y=608 width=12 height=20 type=  value= -->
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=12 y=608 width=35 height=20 type=# value=twin_analog_sticks -->
+						
+							<use xlink:href="#twin_analog_sticks" x="13" y="609" width="33" height="18" />
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=47 y=608 width=65 height=20 type=t value=- -->
+						
+							<text x="79.5" y="618.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=112 y=608 width=65 height=20 type=t value=- -->
+						
+							<text x="144.5" y="618.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=177 y=608 width=65 height=20 type=t value=- -->
+						
+							<text x="209.5" y="618.0">-</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=242 y=608 width=65 height=20 type=t value=Analog sticks -->
+						
+							<text x="274.5" y="618.0">Analog sticks</text>
+						
+					</g>
+					
+				
+					<g class="section_data_cell">
+						
+						
+						
+						<!-- x=307 y=608 width=65 height=20 type=# value=dolphin -->
+						
+							<use xlink:href="#dolphin" x="308" y="609" width="63" height="18" />
+						
+					</g>
+					
+				
+				</g>
+				
+			
+			</g>
+		
+		</g>
+
+		<text x="0" y="0" class="title" transform="translate(23.5 34.0) rotate(-60)">
+			<tspan x="0" y="-8">MAYFLASH</tspan>
+			<tspan x="0" y="0">Wireless Sensor</tspan>
+			<tspan x="0" y="8">DolphinBar</tspan>
+		</text>
+
+		
+		<text x="0" y="0" class="footnote" transform="translate(13 629)">
+			<tspan x="0"  y="7">Pressing the sync button inside the Wii Remote battery cover will permanently pair the controller with the device.</tspan>
+			<tspan x="0"  y="14">Pressing buttons 1 and 2 at the Wii Remote will temporarily pair the controller with the device.</tspan>
+
+			<tspan x="0"  y="28">Firmware update mode:</tspan>
+			<tspan x="10" y="35">Plug the USB cable of MAYFLASH DolphinBar while holding the SYNC button.</tspan>
+			<tspan x="10" y="42">If it is the first time doing that, wait a couple of minutes while Windows install the drivers.</tspan>
+
+			<tspan x="0"  y="56">Product page:</tspan>
+			<tspan x="55" y="56"><a xlink:href="http://www.mayflash.com/Products/NINTENDOWiiGC/W010.html">http://www.mayflash.com/Products/NINTENDOWiiGC/W010.html</a></tspan>
+			<tspan x="0"  y="63">Manual:</tspan>
+			<tspan x="55" y="63"><a xlink:href="https://imgur.com/a/LBagg">https://imgur.com/a/LBagg</a></tspan>
+			<tspan x="0"  y="70">Firmware update:</tspan>
+			<tspan x="55" y="70"><a xlink:href="http://www.mayflash.com/Support/Download/">http://www.mayflash.com/Support/Download/</a></tspan>
+			<tspan x="0"  y="77">Dolphin emulator:</tspan>
+			<tspan x="55" y="77"><a xlink:href="https://dolphin-emu.org/">https://dolphin-emu.org/</a></tspan>
+			<tspan x="0"  y="91">Cheatsheet built by Denilson Sá, who is not affiliated with MAYFLASH nor with Dolphin emulator.</tspan>
+			<tspan x="0"  y="98"><a xlink:href="http://denilson.sa.nom.br/">http://denilson.sa.nom.br/</a></tspan>
+		</text>
+	</g>
+
+
+
+</svg>
