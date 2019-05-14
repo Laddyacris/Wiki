@@ -1,9 +1,10 @@
+---
+description: >-
+  L'idée créer des tutos clrmamepro en quelques clics :/! Tutoriel en cours de
+  rédaction.
+---
+
 # Tutoriel Clrmamepro
-
-
-
-L'idée créer des tutos clrmamepro en quelques clics :  
-/! Tutoriel en cours de rédaction.
 
 * [Définition des mots set; rom; romset; clone](https://github.com/Laddyacris/Wiki/wiki/Tutoriel-CLRMAMEPRO/_edit#définitions)   
 * [Qu'est ce qu'un fichier dat](https://github.com/Laddyacris/Wiki/wiki/Tutoriel-CLRMAMEPRO#quest-ce-quun-fichier-dat-)  
@@ -40,7 +41,7 @@ Exemple : A mettre
 
 Entête indique des informations comme le nom de l'émulateur avec une description, la version et des informations sur l'auteur.
 
-```text
+```markup
 <datafile>
     <header>
         <name>MAME</name>
