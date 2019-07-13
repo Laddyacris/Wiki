@@ -1,4 +1,4 @@
-# Use Neogeo Unibios
+# Neogeo Unibios
 
 ## What Unibios does:
 
