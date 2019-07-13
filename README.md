@@ -4,7 +4,7 @@ description: >-
   rédaction.
 ---
 
-# Tutoriel Clrmamepro
+# Tutoriel Clrmamepro a supp
 
 * [Définition des mots set; rom; romset; clone](https://github.com/Laddyacris/Wiki/wiki/Tutoriel-CLRMAMEPRO/_edit#définitions)   
 * [Qu'est ce qu'un fichier dat](https://github.com/Laddyacris/Wiki/wiki/Tutoriel-CLRMAMEPRO#quest-ce-quun-fichier-dat-)  
